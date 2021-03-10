@@ -1,39 +1,172 @@
-<html>
-
-    <img src="https://cdn.discordapp.com/attachments/801569540478599168/819341411081388042/efa08ded-9f6e-464a-a1eb-23b9174a771e_200x200.png" alt="StatKing Football" width="150" height="100">
-
-</html>
 
 
+*@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
 
-<div id="login-box">
-  <div class="left">
-    <h1 style="font-family:URW Gothic L;">Sign up</h1>
+*:focus {
+  outline: none;
+}
 
-    <input type="text" name="username" placeholder="Username" />
-    <input type="text" name="email" placeholder="E-mail" />
-    <input type="password" name="password" placeholder="Password" />
-    <input type="password" name="password2" placeholder="Retype password" />
+body {
+  margin: 0;
+  padding: 0;
+  background: #34495E;
+  font-size: 16px;
+  color: #222;
+  font-family: sans-serif;
+  font-weight: 300;
+}
 
-    <input type="submit" name="signup_submit" value="Sign me up" />
-  </div>
-  
-  
+#login-box {
+  position: relative;
+  margin: 5% auto;
+  width: 600px;
+  height: 400px;
+  background: #191919;
+  color: white;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
 
-  <div class="right">
-    <h1 style="font-family:URW Gothic L;">Sign in with<br />social network</h1>
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+}
 
-    <button class="social-signin facebook">Log in with facebook</button>
-    <button class="social-signin twitter">Log in with Twitter</button>
-    <button class="social-signin google">Log in with Google+</button>
-  </div>
-  
-  
-  <div class="or">
-    <h1 style="font-family:URW Gothic L;">Or</h1>
-  </div>
-</div>
+h1 {
+  margin: 0 0 20px 0;
+  font-weight: 300;
+  font-size: 28px;
+}
 
+input[type="text"],
+input[type="password"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid #34495E;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.2s ease;
+}
 
+input[type="text"]:focus,
+input[type="password"]:focus {
+  width: 230px;
+  border-color: #3498DB;
+  transition: 0.2s ease;
+}
+
+input[type="submit"] {
+  margin-top: 28px;
+  width: 120px;
+  height: 32px;
+  background: #16a085;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+.or {
+  position: absolute;
+  top: 180px;
+  left: 280px;
+  width: 40px;
+  height: 40px;
+  background: #191919;
+  border-radius: 50%;
+  line-height: 40px;
+  text-align: center;
+  color: white;
+}
+
+.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+  background: url('https://goo.gl/YbktSj');
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 2px 2px 0;
+}
+
+.right .loginwith {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: #FFF;
+  text-align: center;
+}
+
+button.social-signin {
+  margin-bottom: 20px;
+  width: 220px;
+  height: 36px;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+button.social-signin:hover,
+button.social-signin:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+button.social-signin:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+button.social-signin.facebook {
+  background: #32508E;
+  border-radius: 20px;
+}
+
+button.social-signin.twitter {
+  background: #55ACEE;
+  border-radius: 20px;
+}
+
+button.social-signin.google {
+  background: #DD4B39;
+  border-radius: 20px;
+}
 
 
