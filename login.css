@@ -63,12 +63,11 @@ body{
     color: black;
 }
 
-.box button {
+.box a.button {
 	border: 0;
 	background: none;
 	display: block;
 	margin: 20px auto;
-	text-align: center;
 	border: 2px solid #9E9E9E;
 	padding: 14px 40px;
 	outline: none;
@@ -76,9 +75,12 @@ body{
 	border-radius: 24px;
 	transition: 0.25s;
 	cursor: pointer;
+	text-decoration: none;
+	font-size: 13px;
+	width: 70px;
 }
 
-.box button:hover {
+.box a.button:hover {
 	background: #9E9E9E;
 	color: black;
 }
