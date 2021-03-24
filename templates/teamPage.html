@@ -2,8 +2,9 @@
 
   <head>
     <title>NFL StatKing Team Page</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='teamCSS.css') }}" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script type="text/javascript" src="{{ url_for('static', filename='teamJS.js') }}"></script>
   </head>
 
   <body>
@@ -20,12 +21,12 @@
 
 
             <li class="w3-center"><img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" style="height:90px;  border-radius: 50%;"></li>
-            <li><a href="teamPage.html">Home</a></li>
-            <li><a href="">Teams</a></li>
-            <li><a href="">Team Comparisons</a></li>
-            <li><a href="">Players</a></li>
-            <li><a href="login.html">Account</a></li>
-            <li><a href="">About</a></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+			<li><a href="{{ url_for('teamPage') }}">Teams</a></li>
+            <li><a href="{{ url_for('teamComparison') }}">Team Comparisons</a></li>
+			<li><a href="">Players</a></li>
+			<li><a href="{{ url_for('home') }}">Log Out</a></li>
+			<li><a href="">About</a></li>
           </ul>
         </div>
 
