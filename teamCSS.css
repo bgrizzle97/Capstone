@@ -1,0 +1,220 @@
+
+body{
+	background-color: #34495E;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#container{
+	background-color: navy blue;
+	color: black;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#header {
+	background-color: #191919;
+	color: white;
+	text-align: center;
+	padding: 10px;
+}
+
+#content {
+	padding: 10px;
+}
+
+#nav {
+	width: 180px;
+	float: left;
+}
+
+#nav a {
+	text-decoration: none;
+	color: black;
+}
+
+h1, h2, h3 {
+	margin: 0;
+}
+
+#nav ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+#nav .selected{
+	font-weight: bold;
+	color: blue;
+	text-decoration: underline;
+}
+
+#main {
+	width: 80%;
+	float: left;
+}
+
+#footer {
+	clear: both;
+	padding: 10px;
+	background-color: #191919;
+	color: white;
+	text-align: right;
+}
+.container {
+  overflow: hidden;
+}
+.filterDiv{
+  background-color: blue; /* Green background */
+  border: 1px solid black; /* Green border */
+  color: white; /* White text */
+  padding: 10px 20px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 50%; /* Set a width if needed */
+ text-align: left;
+}
+
+.filterDiv:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+border: 0;
+	background: none;
+transition: 1s;
+	margin: 20px auto;
+	border: 2px solid #9E9E9E;
+	padding: 14px 40px;
+	outline: none;
+	color: black;
+	border-radius: 20px;
+	
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 13px;
+	width: 170px;
+}
+
+
+/* Add a light grey background on mouse-over */
+.btn:hover {
+  background-color: grey;
+	color: black;
+  width: 280px;
+	border-color: #3498DB;
+  font-size: 20px;
+}
+
+.btn.active {
+  background-color: black;
+  color: white;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+.wrapper{
+	width: 1200px;
+	margin: 50px auto;
+}
+
+.button_grp ul{
+	display: flex;
+}
+
+.button_grp ul li{
+	background: #fff;
+	margin: 10px;
+	padding: 10px 15px;
+	min-width: 80px;
+	text-align: center;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.125);
+}
+
+.button_grp ul li.active,
+.button_grp ul li:hover{
+	background: #0000fe;
+	color: #fff;
+}
+
+.item_grp{
+	margin-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.item_grp .item{
+	width: 1255px;
+	height: auto;
+	background: #fff;
+	margin: 10px;
+	border-radius: 5px;
+	padding: 15px;
+	text-align: left;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.125);
+}
+
+.item_grp .item .icon_wrp{
+	display: flex;
+	align-items: left;
+	height: 85px;
+}
+
+.item_grp .item .icon{
+	background: url('https://i.pinimg.com/originals/a7/d1/3d/a7d13d5656de499952ea6620f98aa74d.png') no-repeat 0 0;
+	width: 200px;
+	height: 100px;
+	display: inline-grid;
+	margin: 0 auto;
+}
+
+.item_grp .item.folders .icon{
+	background-position: 0 0;
+	width: 200px;
+	height: 100px;
+}
+
+.item_grp .item.files .icon{
+	background-position: 0px -200px;
+	width: 200px;
+	height: 100px;
+}
+
+.item_grp .item.images .icon{
+	background-position: 0 0px;
+	width: 200px;
+	height: 100px;
+}
+
+.item_grp .item.sheets .icon{
+	background-position: 0 -275px;
+	width: 200px;
+	height: 100px;
+}
+
+.item_grp .item.pdfs .icon{
+	background-position: -225px -300px;
+	width: 200px;
+	height: 100px;
+}
+
+.item_grp .item.NewYorkJets .icon{
+	background-position: 0 -400px;
+	width: 200px;
+	height: 100px;
+}
