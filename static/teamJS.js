@@ -1,30 +1,41 @@
 $(".btn").click(function(){
-		var attr = $(this).attr("data-li");
+	var attr = $(this).attr("data-li");
 
-		$(".btn").removeClass("active");
-		$(this).addClass("active");
+	$(".btn").removeClass("active");
+	$(this).addClass("active");
 
-		$(".item").hide();
+	$(".item").hide();
 
-		if(attr == "folders"){
-			$("." + attr).show();
-		}
-		else if(attr == "files"){
-			$("." + attr).show();
-		}
-		else if(attr == "images"){
-			$("." + attr).show();
-		}
-		else if(attr == "sheets"){
-			$("." + attr).show();
-		}
-		else if(attr == "pdfs"){
-			$("." + attr).show();
-		}
-		else if(attr == "NewYorkJets"){
-			$("." + attr).show();
-		}
-		else{
-			$(".item").show();
-		}
-	});
+	if(attr == "NFCWest"){
+		$("." + attr).show();
+	}
+	else if(attr == "NFCSouth"){
+		$("." + attr).show();
+	}
+	else if(attr == "NFCEast"){
+		$("." + attr).show();
+	}
+	else if(attr == "NFCNorth"){
+		$("." + attr).show();
+	}
+	else if(attr == "AFCWest"){
+		$("." + attr).show();
+	}
+	else if(attr == "AFCSouth"){
+		$("." + attr).show();
+	}
+	else if(attr == "AFCNorth"){
+		$("." + attr).show();
+	}
+	else if(attr == "AFCEast"){
+		$("." + attr).show();
+	}
+	else{
+		$(".item").show();
+	}
+});
+
+function myFunction() {
+var popup = document.getElementById("myPopup");
+popup.classList.toggle("show");
+};

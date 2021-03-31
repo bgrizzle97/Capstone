@@ -84,7 +84,7 @@ h1, h2, h3 {
 .btn {
 border: 0;
 	background: none;
-transition: 1s;
+transition: 5s;
 	margin: 20px auto;
 	border: 2px solid #9E9E9E;
 	padding: 14px 40px;
@@ -104,23 +104,29 @@ transition: 1s;
   background-color: grey;
 	color: black;
   width: 280px;
-	border-color: #3498DB;
+	border-color: black;
   font-size: 20px;
+  transition: 1s;
 }
 
 .btn.active {
   background-color: black;
   color: white;
+  width: 280px;
+  font-size:20px;
+  border-color: black;
+  transition: .1s;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Aclonica');
 
 *{
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	box-sizing: border-box;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Aclonica', sans-serif;
 }
 
 
@@ -159,62 +165,366 @@ transition: 1s;
 }
 
 .item_grp .item{
-	width: 1255px;
+	width: 3000px;
 	height: auto;
-	background: #fff;
-	margin: 10px;
-	border-radius: 5px;
+	background: white;
+	margin: 74px;
+	border-radius: 75px;
 	padding: 15px;
-	text-align: left;
-	box-shadow: 1px 1px 3px rgba(0,0,0,0.125);
+	text-align: center;
+  font-weight: 900;
+  font-size: 40px;
+  font-variant: small-caps;
+  font-stretch: extra-condensed;
+	box-shadow: 30px 10px 3px rgba(1,0,0,1.125);
+  box-shadow: 30px 10px 30px rgba(1,0,0,1.125);
+ 
 }
 
 .item_grp .item .icon_wrp{
 	display: flex;
 	align-items: left;
-	height: 85px;
+	height: 86px;
 }
 
 .item_grp .item .icon{
-	background: url('https://i.pinimg.com/originals/a7/d1/3d/a7d13d5656de499952ea6620f98aa74d.png') no-repeat 0 0;
-	width: 200px;
+	background: url('https://i.pinimg.com/originals/a7/d1/3d/a7d13d5656de499952ea6620f98aa74d.png')  0 0;
+	width: 2000px;
 	height: 100px;
-	display: inline-grid;
+	display: block;
 	margin: 0 auto;
 }
 
-.item_grp .item.folders .icon{
-	background-position: 0 0;
+
+.item_grp #SF .icon{
+	background-position: -426px -500px;
 	width: 200px;
 	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
 }
 
-.item_grp .item.files .icon{
-	background-position: 0px -200px;
+
+.item_grp #Team .icon{
+	background-position: -220px -500px;
 	width: 200px;
 	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
 }
 
-.item_grp .item.images .icon{
-	background-position: 0 0px;
+.item_grp #Titans .icon{
+	background-position: -0px -500px;
 	width: 200px;
 	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
 }
 
-.item_grp .item.sheets .icon{
-	background-position: 0 -275px;
+.item_grp #Lions .icon{
+	background-position: -860px -100px;
 	width: 200px;
 	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
 }
 
-.item_grp .item.pdfs .icon{
-	background-position: -225px -300px;
+.item_grp #Broncos .icon{
+	background-position: -650px -100px;
 	width: 200px;
 	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
 }
 
-.item_grp .item.NewYorkJets .icon{
-	background-position: 0 -400px;
+
+.item_grp #Cowboys .icon{
+	background-position: -430px -100px;
 	width: 200px;
 	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Browns .icon{
+	background-position: -215px -100px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+.item_grp #Bengals .icon{
+	background-position: -0px -100px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Packers .icon{
+	background-position: -1070px -100px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Bears .icon{
+	background-position: -1070px -0px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Panthers .icon{
+	background-position: -860px -0px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+.item_grp #Ravens .icon{
+	background-position: -430px -0px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Falcons .icon{
+	background-position: -215px -0px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Card .icon{
+	background-position: -0x -0px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Dolphins .icon{
+	background-position: 1065px -902px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Vikings .icon{
+	background-position: 840px -902px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+.item_grp #Pats .icon{
+	background-position: 640px -902px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+
+
+.item_grp #Giants .icon{
+	background-position: 200px -902px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+.item_grp #Rams .icon{
+	background-position: 0px -905px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Saints .icon{
+	background-position: 1695px -905px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+
+.item_grp #Chargers .icon{
+	background-position: 1485px -805px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+
+.item_grp #Texans .icon{
+	background-position: 1275px -805px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Colts .icon{
+	background-position: 1055px -805px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+.item_grp #Jags .icon{
+	background-position: 850px -805px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+.item_grp #Chiefs .icon{
+	background-position: 625px -805px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+.item_grp #Raiders .icon{
+	background-position: 420px -805px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Bucs .icon{
+	background-position: -1075px -400px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+
+.item_grp #Steelers .icon{
+	background-position: -430px -400px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Eagles .icon{
+	background-position: -225px -400px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+.item_grp #Jets .icon{
+	background-position: -0px -400px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+.item_grp #SF .icon{
+	background-position: -650px -400px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+.item_grp #Seahawks .icon{
+	background-position: -860px -400px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+.item_grp #Bills .icon{
+	background-position: -650px 0px;
+	width: 200px;
+	height: 100px;
+  transform: scale(1.5,1);
+  box-shadow: 10px 10px 3px rgba(3,3,3,.5);
+}
+
+
+
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
 }
