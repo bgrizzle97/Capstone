@@ -17,11 +17,11 @@ cursor = db.cursor()
         #generateTeamPage(team)  AJ
         #generateCharts(team)     AJ
 
-nflTeams = ['ARI', 'ATL', 'BAL', 'BUF', 'CAR', 'CHI', 'CIN', 'CLE', 'DAL', 'DEN', 'DET', 'GB', 'HOU', 'IND', 'JAX',
-            'KC', 'LV', 'LAC', 'LA', 'MIA', 'MIN', 'NE', 'NO', 'NYG', 'NYJ', 'PHI', 'PIT', 'SF', 'SEA', 'TB', 'TEN',
-            'WAS']
+#nflTeams = ['ARI', 'ATL', 'BAL', 'BUF', 'CAR', 'CHI', 'CIN', 'CLE', 'DAL', 'DEN', 'DET', 'GB', 'HOU', 'IND', 'JAX',
+ #           'KC', 'LV', 'LAC', 'LA', 'MIA', 'MIN', 'NE', 'NO', 'NYG', 'NYJ', 'PHI', 'PIT', 'SF', 'SEA', 'TB', 'TEN',
+  #          'WAS']
 
-#nflTeams = ['PIT']
+nflTeams = ['PIT']
 
 
 def formationTendencies(offensiveTeam):
@@ -128,7 +128,6 @@ def qbCompletions():
 
 '''
     tuple1 = (offensiveTeam,) * 2
-
     rushDirections = ['PASS', 'RUSH']
     fig, ax1 = plt.subplots()
     ax1.pie(records[0], labels=rushDirections, autopct='%.2f', startangle=90)
@@ -144,6 +143,31 @@ def genTeamPage(fileName, nflTeam):
     htmlFile.write(
         f"""
         <html>
+  <head>
+    <title>NFL StatKing Team Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='teamCSS.css') }}" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css%22%3E
+    <script type="text/javascript" src="{{ url_for('static', filename='teamJS.js') }}"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <img src="https://media.discordapp.net/attachments/801569540478599168/819424695803838534/b8e73c30-b638-4ded-a6c8-4b83f6b29104_200x200.png" alt="Stat King Logo" width="150" height="100" class="w3-display-topleft">
+        <h1>NFL Stat King</h1>
+      </div>
+      <div id="content">
+        <div id="nav">
+          <h3>Account Information</h3>
+          <ul class="w3-ul w3-hoverable w3-large">
+            <li class="w3-center"><img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" style="height:90px;  border-radius: 50%;"></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('teamPage') }}">Teams</a></li>
+            <li><a href="{{ url_for('teamComparison') }}">Team Comparisons</a></li>
+            <li><a href="">Players</a></li>
+            <li><a href="{{ url_for('home') }}">Log Out</a></li>
+            <li><a href="">About</a></li>
+          </ul>
+        </div>
             <head></head>
             <body>
                 <h1>{nflTeam}</h1>
@@ -178,12 +202,4 @@ main()
 
 
 #print(records)
-
-
-
-
-
-
-
-
 

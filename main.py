@@ -65,5 +65,9 @@ def forgotPassword():
         return redirect(url_for('home'))
     return render_template('forgot_password.html')
 
+@app.route('/PIT')
+def PIT():
+    return render_template('PIT.html')
+
 if __name__ == '__main__':
     app.run()
