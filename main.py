@@ -1,11 +1,24 @@
-from flask import Flask, render_template, request, redirect, url_for, g
+from flask import Flask, render_template, request, redirect, url_for, g, flash
+from flask_mail import *
 import sqlite3
 import dataset
+import random
 
 import passwords
 
 app = Flask(__name__)
+mail = Mail(app)
 db = dataset.connect('sqlite:///user.db')
+
+app.config["MAIL_SERVER"]='smtp.gmail.com'
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USERNAME"] = 'nflstatking@gmail.com'  
+app.config['MAIL_PASSWORD'] = 'statistic'  
+app.config['MAIL_USE_TLS'] = False  
+app.config['MAIL_USE_SSL'] = True  
+
+mail = Mail(app)
+otp = random.randint(000000000, 999999999)
 
 userID = 1
 
@@ -17,10 +30,10 @@ def home():
         profile = db['user'].find_one(username=username)
         if profile == None:
             return redirect(url_for('home'))
-            return
         if (not passwords.verify_password(password, profile["password"])):
             return redirect(url_for('home'))
-            return
+        if profile['verified'] == 0:
+            return redirect(url_for('register'))
         
         return redirect(url_for('index'))
     return render_template('login.html')
@@ -48,9 +61,27 @@ def register():
         while profile != None:
             userID += 1
             profile = db['user'].find_one(id=userID)
-        db['user'].insert({'id':userID, 'username':username, 'email':email, 'password':password})
-        return redirect(url_for('home'))
+        db['user'].insert({'id':userID, 'username':username, 'email':email, 'password':password, 'verified':0})
+        db.commit()
+        msg = Message('OTP',sender = 'nflstatking@gmail.com', recipients = [email])  
+        msg.body = "Here is your one time passcode for verifying your NFL Stat King Account: \n" + str(otp)  
+        mail.send(msg) 
+        return redirect(url_for('verify'))
     return render_template('createUser.html')
+
+@app.route('/verify', methods = ["GET", "POST"])  
+def verify(): 
+    return render_template('verify.html')
+
+@app.route('/validate', methods=["GET", "POST"])
+def validate():
+    user_otp = request.form['otp']
+    username = request.form['username']  
+    if otp == int(user_otp):  
+        db['user'].update({'username':username, 'verified':1},['username'])
+        db.commit()
+        return redirect(url_for('home')) 
+    return "<h3>Failure, OTP does not match</h3>"  
 
 @app.route('/forgotPassword', methods=['GET', 'POST'])
 def forgotPassword():
@@ -60,8 +91,8 @@ def forgotPassword():
         profile = db['user'].find_one(username=username)
         if profile == None:
             return redirect(url_for('forgotPassword'))
-            return
         db['user'].update({'username':username, 'password':password},['username'])
+        db.commit()
         return redirect(url_for('home'))
     return render_template('forgot_password.html')
 
@@ -70,4 +101,4 @@ def PIT():
     return render_template('PIT.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug = True)
