@@ -19,6 +19,7 @@ app.config['MAIL_USE_SSL'] = True
 
 mail = Mail(app)
 otp = random.randint(000000000, 999999999)
+otpp = random.randint(000000000, 999999999)
 
 userID = 1
 
@@ -80,20 +81,29 @@ def validate():
     if otp == int(user_otp):  
         db['user'].update({'username':username, 'verified':1},['username'])
         db.commit()
-        return redirect(url_for('home')) 
+        return redirect(url_for('home'))
+    elif otpp == int(user_otp):
+        db['user'].update({'username':username, 'verified':1},['username'])
+        db.commit()
+        return redirect(url_for('home'))
     return "<h3>Failure, OTP does not match</h3>"  
 
 @app.route('/forgotPassword', methods=['GET', 'POST'])
 def forgotPassword():
     if request.method == 'POST':
         username = request.form['username']
+        email = request.form['email']
         password = passwords.encode_password(request.form['password'])
         profile = db['user'].find_one(username=username)
+        db['user'].update({'username':username, 'verified':0},['username'])
         if profile == None:
             return redirect(url_for('forgotPassword'))
         db['user'].update({'username':username, 'password':password},['username'])
         db.commit()
-        return redirect(url_for('home'))
+        msg = Message('OTP',sender = 'nflstatking@gmail.com', recipients = [email])  
+        msg.body = "Here is your one time passcode for changing your password: \n" + str(otpp)  
+        mail.send(msg) 
+        return redirect(url_for('verify'))
     return render_template('forgot_password.html')
 
 @app.route('/PIT')
@@ -101,4 +111,4 @@ def PIT():
     return render_template('PIT.html')
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run()
