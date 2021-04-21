@@ -79,14 +79,18 @@ def verify():
 @app.route('/validate', methods=["GET", "POST"])
 def validate():
     user_otp = request.form['otp']
-    username = request.form['username']  
+    username = request.form['username'] 
+    global otp
+    global otpp 
     if otp == int(user_otp):  
         db['user'].update({'username':username, 'verified':1},['username'])
         db.commit()
+        otp = random.randint(000000000, 999999999)
         return redirect(url_for('home'))
     elif otpp == int(user_otp):
         db['user'].update({'username':username, 'verified':1},['username'])
         db.commit()
+        otpp = random.randint(000000000, 999999999)
         return redirect(url_for('home'))
     return "<h3>Failure, OTP does not match</h3>"  
 
@@ -119,4 +123,4 @@ def PIT():
     return render_template('PIT.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug = True)
