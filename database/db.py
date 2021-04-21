@@ -147,7 +147,9 @@ def genTeamPage(fileName, nflTeam):
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='teamCSS.css') }}" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+
 </head>
+
   <body>
     <div id="container">
       <div id="header">
@@ -158,6 +160,9 @@ def genTeamPage(fileName, nflTeam):
         <div id="nav">
           <h3>Account Information</h3>
           <ul class="w3-ul w3-hoverable w3-large">
+
+
+
             <li class="w3-center"><img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" style="height:90px;  border-radius: 50%;"></li>
             <li><a href="{{ url_for('index') }}">Home</a></li>
 			<li><a href="{{ url_for('teamPage') }}">Teams</a></li>
@@ -173,8 +178,10 @@ def genTeamPage(fileName, nflTeam):
                           <div class="button_grp">
 			<ul>
 		 <li data-li="all" class="btn active">All</li>
+
                                          <li data-li="Offense" class="btn">Offense</li>
         <li data-li="Defense" class="btn">Defense</li>
+
 			</ul>
 		</div>
                           <div class="item_grp">
@@ -226,3 +233,4 @@ main()
 
 
 #print(records)
+
