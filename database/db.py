@@ -143,6 +143,7 @@ def genTeamPage(fileName, nflTeam):
     htmlFile.write(
         f"""
 <html>
+
     <title>NFL StatKing Team Page</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='teamCSS.css') }}" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -187,22 +188,22 @@ def genTeamPage(fileName, nflTeam):
                           <div class="item_grp">
  
     <div class="item Offense">
-	                 <p><img src="{nflTeam}_Formation.svg"></img></p>
+	                 <p><img src="{{url_for('static',filename='{nflTeam}_Formation.svg')}}"></img></p>
 			</div>
  
     <div class="item Offense">
-	                      <p><img src="{nflTeam}_Rush.svg"></img></p>
+      <p><img src="{{url_for('static',filename='{nflTeam}_Rush.svg')}}"></img></p>
 			</div>
        <div class="item_grp">
  
     <div class="item Offense">
 			
-	
-	                 <p><img src="{nflTeam}_PassVsRun.svg"></img></p>
+      <p><img src="{{url_for('static',filename='{nflTeam}_PassVsRun.svg')}}"></img></p>
 			</div>                                                      
                                  <div class="item_grp">
+
     <div class="item Offense">
-	                  <p><img src="{nflTeam}_PassType.svg"></img></p>  
+      <p><img src="{{url_for('static',filename='{nflTeam}_PassType.svg')}}"></img></p>
 			</div>
                                  
             </body>
