@@ -102,6 +102,9 @@ def forgotPassword():
             return redirect(url_for('forgotPassword'))
         if profile['email'] != email:
             flash('Incorrect email entered')
+            msg = Message('OTP',sender = 'nflstatking@gmail.com', recipients = [profile['email']])  
+            msg.body = "We noticed some suspicious behavior on your account as someone has tried to access it. \n \n We recommend changing your password in order to keep your account secure."  
+            mail.send(msg)
             return redirect(url_for('forgotPassword'))
         db['user'].update({'username':username, 'password':password},['username'])
         db.commit()
