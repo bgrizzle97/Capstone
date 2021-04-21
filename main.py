@@ -10,6 +10,8 @@ app = Flask(__name__)
 mail = Mail(app)
 db = dataset.connect('sqlite:///user.db')
 
+app.config["SECRET_KEY"] = 'f1/2f1uf98jongin3f13/f1f31hf912nf/vdshfanvpirbeoj'
+
 app.config["MAIL_SERVER"]='smtp.gmail.com'
 app.config["MAIL_PORT"] = 465
 app.config["MAIL_USERNAME"] = 'nflstatking@gmail.com'  
@@ -97,6 +99,9 @@ def forgotPassword():
         profile = db['user'].find_one(username=username)
         db['user'].update({'username':username, 'verified':0},['username'])
         if profile == None:
+            return redirect(url_for('forgotPassword'))
+        if profile['email'] != email:
+            flash('Incorrect email entered')
             return redirect(url_for('forgotPassword'))
         db['user'].update({'username':username, 'password':password},['username'])
         db.commit()
