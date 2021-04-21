@@ -30,6 +30,12 @@ $(".btn").click(function(){
 	else if(attr == "AFCEast"){
 			$("." + attr).show();
 	}
+	else if(attr == "Offense"){
+		$("." + attr).show();
+}
+else if(attr == "Defense"){
+		$("." + attr).show();
+}
 	else{
 			$(".item").show();
 	}

@@ -142,13 +142,12 @@ def genTeamPage(fileName, nflTeam):
     htmlFile = open(fileName, "w")
     htmlFile.write(
         f"""
-        <html>
-  <head>
+<html>
     <title>NFL StatKing Team Page</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='teamCSS.css') }}" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css%22%3E
-    <script type="text/javascript" src="{{ url_for('static', filename='teamJS.js') }}"></script>
-  </head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+</head>
   <body>
     <div id="container">
       <div id="header">
@@ -161,23 +160,48 @@ def genTeamPage(fileName, nflTeam):
           <ul class="w3-ul w3-hoverable w3-large">
             <li class="w3-center"><img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" style="height:90px;  border-radius: 50%;"></li>
             <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('teamPage') }}">Teams</a></li>
+			<li><a href="{{ url_for('teamPage') }}">Teams</a></li>
             <li><a href="{{ url_for('teamComparison') }}">Team Comparisons</a></li>
-            <li><a href="">Players</a></li>
-            <li><a href="{{ url_for('home') }}">Log Out</a></li>
-            <li><a href="">About</a></li>
+			<li><a href="">Players</a></li>
+			<li><a href="{{ url_for('home') }}">Log Out</a></li>
+			<li><a href="">About</a></li>
           </ul>
         </div>
-            <head></head>
-            <body>
-                <h1>{nflTeam}</h1>
-                <p><img src="{nflTeam}_Formation.svg"></img></p>
-                <p><img src="{nflTeam}_Rush.svg"></img></p>
-                <p><img src="{nflTeam}_PassVsRun.svg"></img></p>                            
-                <p><img src="{nflTeam}_PassType.svg"></img></p>                            
+                          
+                          
+                          
+                          <div class="button_grp">
+			<ul>
+		 <li data-li="all" class="btn active">All</li>
+                                         <li data-li="Offense" class="btn">Offense</li>
+        <li data-li="Defense" class="btn">Defense</li>
+			</ul>
+		</div>
+                          <div class="item_grp">
+ 
+    <div class="item Offense">
+	                 <p><img src="{nflTeam}_Formation.svg"></img></p>
+			</div>
+ 
+    <div class="item Offense">
+	                      <p><img src="{nflTeam}_Rush.svg"></img></p>
+			</div>
+       <div class="item_grp">
+ 
+    <div class="item Offense">
+			
+	
+	                 <p><img src="{nflTeam}_PassVsRun.svg"></img></p>
+			</div>                                                      
+                                 <div class="item_grp">
+    <div class="item Offense">
+	                  <p><img src="{nflTeam}_PassType.svg"></img></p>  
+			</div>
+                                 
             </body>
         </html>""")
-    htmlFile.close()
+    htmlFile.close() 
+
 
 #qbCompletions()
 
@@ -202,4 +226,3 @@ main()
 
 
 #print(records)
-
