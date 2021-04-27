@@ -165,7 +165,7 @@ transition: 5s;
 }
 
 .item_grp .item{
-	width: 3000px;
+	width: 500px;
 	height: auto;
 	background: white;
 	margin: 74px;
@@ -177,7 +177,8 @@ transition: 5s;
   font-variant: small-caps;
   font-stretch: extra-condensed;
 	box-shadow: 30px 10px 3px rgba(1,0,0,1.125);
-  box-shadow: 30px 10px 30px rgba(1,0,0,1.125);
+	box-shadow: 30px 10px 30px rgba(1,0,0,1.125);
+	max-width: 500px;
  
 }
 
@@ -185,6 +186,7 @@ transition: 5s;
 	display: flex;
 	align-items: left;
 	height: 86px;
+	max-width: 500px;
 }
 
 .item_grp .item .icon{
