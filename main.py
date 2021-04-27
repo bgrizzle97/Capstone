@@ -23,7 +23,7 @@ mail = Mail(app)
 otp = random.randint(000000000, 999999999)
 otpp = random.randint(000000000, 999999999)
 
-userID = 1
+userID = random.randint(000000000000, 999999999999)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -58,14 +58,19 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
-        password = passwords.encode_password(request.form['password'])
+        password = request.form['password']
+        password2 = request.form['password2']
+        passwordSafe = passwords.encode_password(password)
         global userID
         profile = db['user'].find_one(id=userID)
         while profile != None:
-            userID += 1
+            userID = random.randint(000000000000, 999999999999)
             profile = db['user'].find_one(id=userID)
-        db['user'].insert({'id':userID, 'username':username, 'email':email, 'password':password, 'verified':0})
-        db.commit()
+        if password == password2:
+            db['user'].insert({'id':userID, 'username':username, 'email':email, 'password':passwordSafe, 'verified':0})
+            db.commit()
+        else:
+            return redirect(url_for('register'))
         msg = Message('OTP',sender = 'nflstatking@gmail.com', recipients = [email])  
         msg.body = "Here is your one time passcode for verifying your NFL Stat King Account: \n" + str(otp)  
         mail.send(msg) 
