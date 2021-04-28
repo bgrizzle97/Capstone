@@ -155,8 +155,6 @@ def CLE():
 def TB():
     return render_template('TB.html')
 
-##hope you didnt fuck up bro
-
 @app.route('/ARI')
 def ARI():
     return render_template('ARI.html')
