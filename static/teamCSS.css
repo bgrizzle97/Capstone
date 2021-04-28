@@ -145,7 +145,7 @@ transition: 5s;
 	margin: 10px;
 	padding: 10px 15px;
 	min-width: 80px;
-	text-align: left;
+	text-align: center;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: all 0.2s ease;
@@ -162,7 +162,6 @@ transition: 5s;
 	margin-top: 50px;
 	display: flex;
 	flex-wrap: wrap;
-	box-sizing: border-box;
 }
 
 .item_grp .item{
@@ -185,7 +184,7 @@ transition: 5s;
 
 .item_grp .item .icon_wrp{
 	display: flex;
-	align-items: left;
+	align-items: center;
 	height: 86px;
 	max-width: 500px;
 }
