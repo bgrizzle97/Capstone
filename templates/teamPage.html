@@ -108,7 +108,7 @@
 				<div class="icon_wrp">
 					<span class="icon"></span>
 				</div>
-				<div class="name">San Diego Chargers</div>
+				<div class="name">Los Angeles Chargers</div>
 			</div>
 			<div class="item AFCWest" id = "Chiefs" button onclick="kcFunc()" >
 				<div class="icon_wrp">
@@ -241,7 +241,7 @@
 				<div class="name">Seattle Seahawks</div>
       </div>
       
-      <div class="item NFCWest" id=Rams button onclick=LAR()>
+      <div class="item NFCWest" id=Rams button onclick=LA()>
 				<div class="icon_wrp">
 					<span class="icon"></span>
 				</div>
@@ -302,108 +302,132 @@ $(".btn").click(function(){
 });
 
 function SFFunc() {
-location.replace("SF.html")
+	location.replace("{{ url_for('SF') }}")
 };
 
 function BEARFunc() {
-location.replace("BUF.html")
+location.replace("{{ url_for('CHI') }}")
 };
 
 function BENFunc() {
-location.replace("CIN.html")
+location.replace("{{ url_for('CIN') }}")
 };
 
 function denFunc() {
-location.replace("DEN.html")
+location.replace("{{ url_for('DEN') }}")
 };
+
 function bufFunc() {
-location.replace("BUF.html")
+location.replace("{{ url_for('BUF') }}")
 };
+
 function cleFunc() {
-location.replace("CLE.html")
+location.replace("{{ url_for('CLE') }}")
 };
+
 function tbFunc() {
-location.replace("TB.html")
+location.replace("{{ url_for('TB') }}")
 };
+
 function ariFunc() {
-location.replace("ARI.html")
+location.replace("{{ url_for('ARI') }}")
 };
+
 function lacFunc() {
-location.replace("LAC.html")
+location.replace("{{ url_for('LAC') }}")
 };
+
 function kcFunc() {
-location.replace("KC.html")
-};
+location.replace("{{ url_for('KC') }}")
+}
+
+
 function ind() {
-location.replace("IND.html")
-};
+location.replace("{{ url_for('IND') }}")
+}
+
 function dal() {
-location.replace("DAL.html")
-};
+location.replace("{{ url_for('DAL') }}")
+}
+
 function mia() {
-location.replace("MIA.html")
+location.replace("{{ url_for('MIA') }}")
 };
 
 function phi() {
-location.replace("PHI.html")
+location.replace("{{ url_for('PHI') }}")
 };
+
 function atl() {
-location.replace("ATL.html")
+location.replace("{{ url_for('ATL') }}")
 };
 
 
 function nyg() {
-location.replace("NYG.html")
+location.replace("{{ url_for('NYG') }}")
 };
+
 function jax() {
-location.replace("JAX.html")
+location.replace("{{ url_for('JAX') }}")
 };
+
 function nyj() {
-location.replace("NYJ.html")
+location.replace("{{ url_for('NYJ') }}")
 };
+
 function det() {
-location.replace("DET.html")
+location.replace("{{ url_for('DET') }}")
 };
 
 function gb() {
-location.replace("GB.html")
+location.replace("{{ url_for('GB') }}")
 };
+
 function car() {
-location.replace("CAR.html")
+location.replace("{{ url_for('CAR') }}")
 };
+
 function NE() {
-location.replace("NE.html")
+location.replace("{{ url_for('NE') }}")
 };
+
 function LV() {
-location.replace("LV.html")
+location.replace("{{ url_for('LV') }}")
 };
+
 function HOU() {
-location.replace("HOU.html")
+location.replace("{{ url_for('HOU') }}")
 };
+
 function TEN() {
-location.replace("TEN.html")
+location.replace("{{ url_for('TEN') }}")
 };
+
 function PIT() {
 location.replace("{{ url_for('PIT') }}")
 };
+
 function bal() {
-location.replace("BAL.html")
+location.replace("{{ url_for('BAL') }}")
 };
+
 function MIN() {
-location.replace("MIN.html")
+location.replace("{{ url_for('MIN') }}")
 };
+
 function SEA() {
-location.replace("SEA.html")
+location.replace("{{ url_for('SEA') }}")
 };
-function LAR() {
-location.replace("LAR.html")
+
+function LA() {
+location.replace("{{ url_for('LA') }}")
 };
 
 function NO() {
-location.replace("NO.html")
+location.replace("{{ url_for('NO') }}")
 };
 
 function WAS() {
-location.replace("WAS.html")
+location.replace("{{ url_for('WAS') }}")
 };
 				</script>
