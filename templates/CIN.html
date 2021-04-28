@@ -1,0 +1,96 @@
+
+
+<html>
+    <title>NFL StatKing Team Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='teamCSS.css') }}" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+</head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <img src="https://media.discordapp.net/attachments/801569540478599168/819424695803838534/b8e73c30-b638-4ded-a6c8-4b83f6b29104_200x200.png" alt="Stat King Logo" width="150" height="100" class="w3-display-topleft">
+        <h1>NFL Stat King</h1>
+      </div>
+      <div id="content">
+        <div id="nav">
+          <h3>Account Information</h3>
+          <ul class="w3-ul w3-hoverable w3-large">
+            <li class="w3-center"><img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" style="height:90px;  border-radius: 50%;"></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+			<li><a href="{{ url_for('teamPage') }}">Teams</a></li>
+            <li><a href="{{ url_for('teamComparison') }}">Team Comparisons</a></li>
+			<li><a href="">Players</a></li>
+			<li><a href="{{ url_for('home') }}">Log Out</a></li>
+			<li><a href="">About</a></li>
+          </ul>
+        </div>
+                          
+                          
+                          
+                          <div class="button_grp">
+			<ul>
+		 <li data-li="all" class="btn active">All</li>
+                                         <li data-li="Offense" class="btn">Offense</li>
+        <li data-li="Defense" class="btn">Defense</li>
+			</ul>
+		</div>
+                          <div class="item_grp">
+ 
+    <div class="item Offense">
+    <div class="name"> CIN Offensive Formations
+        </div>
+	                 <p><img src="{{url_for('static',filename='CIN_Formation.svg')}}"></img></p>
+			</div>
+ 
+    <div class="item Offense">
+    <div class="name"> CIN Rushing Directions
+        </div>
+      <p><img src="{{url_for('static',filename='CIN_Rush.svg')}}"></img></p>
+			</div>
+ 
+    <div class="item Offense">
+    <div class="name"> CIN Pass vs Run
+        </div>
+      <p><img src="{{url_for('static',filename='CIN_PassVsRun.svg')}}"></img></p>
+			</div>                                                      
+
+    <div class="item Offense">
+    <div class="name"> CIN Pass Type Tendencies
+        </div>
+      <p><img src="{{url_for('static',filename='CIN_PassType.svg')}}"></img></p>
+			</div>
+    
+    <div class="item Defense">
+    <div class="name"> Pass Directions vs CINs Defense
+        </div>
+      <p><img src="{{url_for('static',filename='CIN_DefPassType.svg')}}"></img></p>
+			</div>
+
+    <div class="item Defense">
+    <div class="name"> Rush Directions vs CINs Defense
+        </div>
+      <p><img src="{{url_for('static',filename='CIN_DefRushDirection.svg')}}"></img></p>
+			</div>
+                       <script>
+              $(".btn").click(function(){
+	var attr = $(this).attr("data-li");
+
+	$(".btn").removeClass("active");
+	$(this).addClass("active");
+
+	$(".item").hide();
+	
+	if(attr == "Offense"){
+		$("." + attr).show();
+}
+else if(attr == "Defense"){
+		$("." + attr).show();
+}
+	else{
+			$(".item").show();
+		}
+	});
+            </script>                                    
+            </body>
+        </html>
