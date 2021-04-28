@@ -253,5 +253,6 @@ def NO():
 def WAS():
     return render_template('WAS.html')
 
+
 if __name__ == '__main__':
     app.run(debug = True)

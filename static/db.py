@@ -235,14 +235,14 @@ def genTeamPage(fileName, nflTeam):
         </div>
       <p><img src="{{{{url_for('static',filename='{nflTeam}_Rush.svg')}}}}"></img></p>
 			</div>
-       <div class="item_grp">
+
  
     <div class="item Offense">
     <div class="name"> {nflTeam} Pass vs Run
         </div>
       <p><img src="{{{{url_for('static',filename='{nflTeam}_PassVsRun.svg')}}}}"></img></p>
 			</div>                                                      
-                                 <div class="item_grp">
+
     <div class="item Offense">
     <div class="name"> {nflTeam} Pass Type Tendencies
         </div>

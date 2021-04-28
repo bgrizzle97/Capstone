@@ -145,7 +145,7 @@ transition: 5s;
 	margin: 10px;
 	padding: 10px 15px;
 	min-width: 80px;
-	text-align: center;
+	text-align: left;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: all 0.2s ease;
@@ -162,10 +162,11 @@ transition: 5s;
 	margin-top: 50px;
 	display: flex;
 	flex-wrap: wrap;
+	box-sizing: border-box;
 }
 
 .item_grp .item{
-	width: 500px;
+	width: 1024px;
 	height: auto;
 	background: white;
 	margin: 74px;
@@ -178,7 +179,7 @@ transition: 5s;
   font-stretch: extra-condensed;
 	box-shadow: 30px 10px 3px rgba(1,0,0,1.125);
 	box-shadow: 30px 10px 30px rgba(1,0,0,1.125);
-	max-width: 500px;
+	max-width: 1024px;
  
 }
 
