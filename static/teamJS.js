@@ -147,3 +147,22 @@ location.replace("NO.html")
 function WAS() {
 location.replace("WAS.html")
 };
+
+$(".btn").click(function(){
+	var attr = $(this).attr("data-li");
+
+	$(".btn").removeClass("active");
+	$(this).addClass("active");
+
+	$(".item").hide();
+	
+	if(attr == "Offense"){
+		$("." + attr).show();
+}
+else if(attr == "Defense"){
+		$("." + attr).show();
+}
+	else{
+			$(".item").show();
+		}
+	});

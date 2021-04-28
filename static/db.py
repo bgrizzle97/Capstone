@@ -24,6 +24,8 @@ cursor = db.cursor()
 nflTeams = ['PIT']
 
 
+#Offensive Functions
+
 def formationTendencies(offensiveTeam):
     formationQuery = """SELECT DISTINCT
         (SELECT COUNT(*) FROM PlayByPlay2020 WHERE OffenseTeam=%s && Formation='SHOTGUN') as shotgunCount,   
@@ -97,8 +99,6 @@ def passType(offensiveTeam):
     return fig
 
 
-
-
 def passVsRun(offensiveTeam):
     passVsRunQuery = """SELECT DISTINCT
         (SELECT COUNT(*) FROM PlayByPlay2020 WHERE OffenseTeam=%s && PlayType='PASS') as passCount,   
@@ -125,7 +125,6 @@ def qbCompletions():
     for record in records[0]:
         print(record)
 '''
-
 '''
     tuple1 = (offensiveTeam,) * 2
     rushDirections = ['PASS', 'RUSH']
@@ -136,18 +135,64 @@ def qbCompletions():
     return fig
     '''
 
+#Defensive Functions
+
+def defPassType(defensiveTeam):
+    defPassTypeQuery = """SELECT DISTINCT
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE OffenseTeam=%s && PassType='SHORT LEFT') as shortLeftCount,  
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE OffenseTeam=%s && PassType='DEEP LEFT') as deepLeftCount, 
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE OffenseTeam=%s && PassType='SHORT MIDDLE') as shortMiddleCount,
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE OffenseTeam=%s && PassType='DEEP MIDDLE') as deepMiddleCount,   
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE OffenseTeam=%s && PassType='SHORT RIGHT') as shortRightCount,   
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE OffenseTeam=%s && PassType='DEEP RIGHT') as deepRightCount 
+        FROM PlayByPlay2020"""
+    tuple1 = (defensiveTeam,) * 6
+    cursor.execute(defPassTypeQuery, tuple1)
+    records = list(cursor.fetchall())
+    fig = plt.figure()
+    passDirections = ['SHORT LEFT', 'DEEP LEFT', 'SHORT MIDDLE', 'DEEP MIDDLE', 'SHORT RIGHT', 'DEEP RIGHT']
+    plt.bar(passDirections, records[0])
+    plt.title(f"Pass Directions vs {defensiveTeam} Defense")
+    plt.xticks(size=6)
+    plt.yticks(size=6)
+    return fig
+
+def defRushDirection(defensiveTeam):
+    rushDirectionQuery = """SELECT DISTINCT
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE DefenseTeam=%s && RushDirection='LEFT TACKLE') as leftTackleCount,   
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE DefenseTeam=%s && RushDirection='LEFT GUARD') as leftGuardCount,
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE DefenseTeam=%s && RushDirection='LEFT END') as leftEndCount,   
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE DefenseTeam=%s && RushDirection='CENTER') as centerCount,
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE DefenseTeam=%s && RushDirection='RIGHT GUARD') as rightGuardCount,   
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE DefenseTeam=%s && RushDirection='RIGHT TACKLE') as rightTackleCount,
+        (SELECT COUNT(*) FROM PlayByPlay2020 WHERE DefenseTeam=%s && RushDirection='RIGHT END') as rightEndCount   
+        FROM PlayByPlay2020"""
+    tuple1 = (defensiveTeam,) * 7
+    cursor.execute(rushDirectionQuery, tuple1)
+    records = list(cursor.fetchall())
+    fig = plt.figure()
+    rushDirections = ['LEFT END', 'LEFT TACKLE', 'LEFT GUARD', 'CENTER', 'RIGHT GUARD', 'RIGHT TACKLE', 'RIGHT END']
+    plt.bar(rushDirections, records[0])
+    plt.title(f"Rush Directions vs {defensiveTeam} Defense")
+    plt.xticks(size=6)
+    plt.yticks(size=6)
+    return fig
+
+
+
+
 
 
 def genTeamPage(fileName, nflTeam):
     htmlFile = open(fileName, "w")
     htmlFile.write(
         f"""
-<html>
 
+<html>
     <title>NFL StatKing Team Page</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='teamCSS.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{{{ url_for('static', filename='teamCSS.css') }}}}" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+	<script type="text/javascript" src="{{{{ url_for('static', filename='jquery.js') }}}}"></script>
 </head>
   <body>
     <div id="container">
@@ -160,11 +205,11 @@ def genTeamPage(fileName, nflTeam):
           <h3>Account Information</h3>
           <ul class="w3-ul w3-hoverable w3-large">
             <li class="w3-center"><img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" style="height:90px;  border-radius: 50%;"></li>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-			<li><a href="{{ url_for('teamPage') }}">Teams</a></li>
-            <li><a href="{{ url_for('teamComparison') }}">Team Comparisons</a></li>
+            <li><a href="{{{{ url_for('index') }}}}">Home</a></li>
+			<li><a href="{{{{ url_for('teamPage') }}}}">Teams</a></li>
+            <li><a href="{{{{ url_for('teamComparison') }}}}">Team Comparisons</a></li>
 			<li><a href="">Players</a></li>
-			<li><a href="{{ url_for('home') }}">Log Out</a></li>
+			<li><a href="{{{{ url_for('home') }}}}">Log Out</a></li>
 			<li><a href="">About</a></li>
           </ul>
         </div>
@@ -181,33 +226,67 @@ def genTeamPage(fileName, nflTeam):
                           <div class="item_grp">
  
     <div class="item Offense">
-	                 <p><img src="{{url_for('static',filename='{nflTeam}_Formation.svg')}}"></img></p>
+    <div class="name"> {nflTeam} Offensive Formations
+        </div>
+	                 <p><img src="{{{{url_for('static',filename='{nflTeam}_Formation.svg')}}}}"></img></p>
 			</div>
  
     <div class="item Offense">
-      <p><img src="{{url_for('static',filename='{nflTeam}_Rush.svg')}}"></img></p>
+    <div class="name"> {nflTeam} Rushing Directions
+        </div>
+      <p><img src="{{{{url_for('static',filename='{nflTeam}_Rush.svg')}}}}"></img></p>
 			</div>
        <div class="item_grp">
  
     <div class="item Offense">
-			
-      <p><img src="{{url_for('static',filename='{nflTeam}_PassVsRun.svg')}}"></img></p>
+    <div class="name"> {nflTeam} Pass vs Run
+        </div>
+      <p><img src="{{{{url_for('static',filename='{nflTeam}_PassVsRun.svg')}}}}"></img></p>
 			</div>                                                      
                                  <div class="item_grp">
-
     <div class="item Offense">
-      <p><img src="{{url_for('static',filename='{nflTeam}_PassType.svg')}}"></img></p>
+    <div class="name"> {nflTeam} Pass Type Tendencies
+        </div>
+      <p><img src="{{{{url_for('static',filename='{nflTeam}_PassType.svg')}}}}"></img></p>
 			</div>
-                                 
+    
+    <div class="item Defense">
+    <div class="name"> Pass Directions vs {nflTeam}s Defense
+        </div>
+      <p><img src="{{{{url_for('static',filename='{nflTeam}_DefPassType.svg')}}}}"></img></p>
+			</div>
+
+    <div class="item Defense">
+    <div class="name"> Rush Directions vs {nflTeam}s Defense
+        </div>
+      <p><img src="{{{{url_for('static',filename='{nflTeam}_DefRushDirection.svg')}}}}"></img></p>
+			</div>
+                       <script>
+              $(".btn").click(function(){{
+	var attr = $(this).attr("data-li");
+
+	$(".btn").removeClass("active");
+	$(this).addClass("active");
+
+	$(".item").hide();
+	
+	if(attr == "Offense"){{
+		$("." + attr).show();
+}}
+else if(attr == "Defense"){{
+		$("." + attr).show();
+}}
+	else{{
+			$(".item").show();
+		}}
+	}});
+            </script>                                    
             </body>
         </html>""")
     htmlFile.close() 
 
 
-#qbCompletions()
-
 def main():
-
     for nflTeam in nflTeams:
         print(nflTeam)
         genTeamPage(f"{nflTeam}.html", nflTeam)
@@ -215,15 +294,7 @@ def main():
         rushDirection(nflTeam).savefig(f"{nflTeam}_Rush.svg", format='svg')
         passVsRun(nflTeam).savefig(f"{nflTeam}_PassVsRun.svg", format='svg')
         passType(nflTeam).savefig(f"{nflTeam}_PassType.svg", format='svg')
-
+        defPassType(nflTeam).savefig(f"{nflTeam}_DefPassType.svg", format='svg')
+        defRushDirection(nflTeam).savefig(f"{nflTeam}_DefRushDirection.svg", format='svg')
 
 main()
-
-#formationTendencies('PIT')
-#rushDirection('PIT')
-#passVsRun('PIT')
-#passType('PIT')
-
-
-
-#print(records)
