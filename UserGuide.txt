@@ -1,0 +1,14 @@
+When you go to load up the application, you will need to run soem commands first.
+Commands to run in the terminal:
+    export FLASK_APP=main.py
+    flask run
+Once you run the commands, it should tell you how to access the application.
+The usual seems to be 127.0.0.1:5000
+Once you get on the login screen, you will need to create an account by clicking the create account button.
+From there you will enter in your username, email, and password.
+After clicking continue, a one time password will be sent to your email that you will need to enter in.
+You will be redirected back to the login page where you will login.
+The main page shows what it would look like if you had a team or statistic favorited, but it would normally be empty the first time you login.
+The main area we have functioning at the moment is the teams section where you can sort by confrerence and each team has offensive and defensive stats to view.
+The other area with content is the Team Comparison, but it shows one graph to show what it would look like when it is funcitonal.
+Once you are done, you can logout.
