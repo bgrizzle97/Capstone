@@ -23,7 +23,7 @@ mail = Mail(app)
 otp = random.randint(000000000, 999999999)
 otpp = random.randint(000000000, 999999999)
 
-userID = random.randint(000000000000, 999999999999)
+userID = random.randint(0000000000000, 9999999999999)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -64,7 +64,7 @@ def register():
         global userID
         profile = db['user'].find_one(id=userID)
         while profile != None:
-            userID = random.randint(000000000000, 999999999999)
+            userID = random.randint(0000000000000, 9999999999999)
             profile = db['user'].find_one(id=userID)
         if password == password2:
             db['user'].insert({'id':userID, 'username':username, 'email':email, 'password':passwordSafe, 'verified':0})
